@@ -1,5 +1,6 @@
 FROM ubuntu
-RUN sudo apt update
-RUN sudo apt install apache2 -y
+RUN apt update
+RUN apt install apache2 -y
 ADD index.html /var/www/html/
 ENTRYPOINT apachectl -D FOREGROUND
+#we never use sudo in docker file bc container always in root access
